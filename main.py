@@ -8,6 +8,7 @@
 
 # Imports For Main Function ----------------------------------------------------------------------
 from cloud_launcher.launch import Launcher
+from exit_clean_up.exit import Exit
 # ------------------------------------------------------------------------------------------------
 
 # Main File Project Flow -------------------------------------------------------------------------
@@ -17,3 +18,13 @@ from cloud_launcher.launch import Launcher
 # ------------------------------------------------------------------------------------------------
 
 launcher = Launcher()
+
+# life of function -------------------------------------------------------------------------------
+# As we only want this function to run only durring the life of the function and have the aws resources removed after the process is killed. This cxode will perform action. Probably should be looked at before production
+if __name__ == "__main__":
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        clean_up_stack = Exit()
+# ------------------------------------------------------------------------------------------------
